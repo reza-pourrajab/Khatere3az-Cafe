@@ -1,0 +1,152 @@
+:root {
+	/* پس‌زمینه */
+	--color-bg-main: #f5e8d3; /* پس‌زمینه اصلی */
+	--color-bg-card: #e6d5b8; /* پس‌زمینه کارت‌ها / باکس‌ها */
+	--color-bg-button: #d4b998; /* پس‌زمینه دکمه‌ها */
+
+	/* متن */
+	--color-text-main: #3e2c1c; /* متن اصلی */
+	--color-text-secondary: #fff4e1; /* متن ثانویه / placeholder */
+
+	/* لینک‌ها و جزئیات */
+	--color-accent: #8c593b; /* لینک‌ها و برجسته‌سازی */
+
+	/* خطوط و سایه */
+	--color-border: #c1a882; /* خطوط جداکننده و سایه کارت‌ها */
+}
+
+@font-face {
+	font-family: "laleh";
+	src: url("../fonts/lalehzar/Lalezar-Regular.ttf") format("truetype");
+}
+@font-face {
+	font-family: "shabnam";
+	src: url("../fonts/shabnam/ttf/Shabnam-Bold.ttf") format("truetype"),
+		url("../fonts/shabnam/woff2/Shabnam-Bold.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "vazir";
+	src: url("../fonts/vazir/ttf/Vazirmatn-Light.ttf") format("truetype"),
+		url("../fonts/vazir/woff2/Vazirmatn-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "vazir";
+	src: url("../fonts/vazir/ttf/Vazirmatn-Regular.ttf") format("truetype"),
+		url("../fonts/vazir/woff2/Vazirmatn-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "vazir";
+	src: url("../fonts/vazir/ttf/Vazirmatn-Medium.ttf") format("truetype"),
+		url("../fonts/vazir/woff2/Vazirmatn-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "vazir";
+	src: url("../fonts/vazir/ttf/Vazirmatn-SemiBold.ttf") format("truetype"),
+		url("../fonts/vazir/woff2/Vazirmatn-SemiBold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "vazir";
+	src: url("../fonts/vazir/ttf/Vazirmatn-Bold.ttf") format("truetype"),
+		url("../fonts/vazir/woff2/Vazirmatn-Bold.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-family: "vazir", sans-serif;
+	background-color: var(--color-bg-main);
+	color: var(--color-text-main);
+}
+
+button:focus,
+button:active,
+button:focus-visible {
+	outline: none !important;
+	box-shadow: none !important;
+}
+section {
+	padding-top: 30px;
+}
+
+.btn {
+	font-family: "shabnam";
+	background-color: var(--color-bg-button);
+	box-shadow: 0 4px 12px var(--color-border);
+}
+.btn:hover {
+	background-color: var(--color-accent);
+	color: var(--color-text-secondary);
+}
+
+/* Header */
+.header-custom {
+	background-color: var(--color-bg-card);
+	box-shadow: 0 4px 12px var(--color-border);
+}
+
+.brand-custom,
+.nav-title {
+	font-family: "laleh";
+}
+
+.navbar-menu,
+.dropdown-item-custom {
+	font-family: "shabnam";
+}
+.dropdown-menu-custom {
+	background-color: var(--color-bg-main);
+}
+.nav-link-custom:active,
+.dropdown-item-custom:active {
+	background-color: var(--color-accent);
+	color: var(--color-text-secondary);
+}
+
+.nav-link-custom,
+.dropdown-item-custom {
+	color: var(--color-text-main);
+}
+
+.navbar-custom .nav-link-custom.active {
+	color: var(--color-accent);
+}
+
+/* Hero Section */
+
+.hero {
+	position: relative;
+	min-height: 87vh;
+}
+
+.hero-img {
+	position: absolute;
+	inset: 0;
+	background: url("../images/herosection/mike-kenneally-tNALoIZhqVM-unsplash.jpg")
+		center/cover no-repeat;
+	z-index: -1;
+}
+.hero-content {
+	color: var(--color-text-secondary);
+	padding-top: 40px;
+}
+.hero-title {
+	font-family: "shabnam";
+}
+.hero-caption {
+}

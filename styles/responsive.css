@@ -1,0 +1,16 @@
+@media (min-width: 992px) {
+	.nav-link-custom:hover {
+		color: var(--color-text-secondary);
+	}
+	.dropdown-menu-custom {
+		background-color: var(--color-bg-card);
+	}
+	.nav-link-custom:active,
+	.dropdown-item-custom:active {
+		background-color: transparent;
+		color: inherit;
+	}
+	.hero-content {
+		padding-top: 50px;
+	}
+}
