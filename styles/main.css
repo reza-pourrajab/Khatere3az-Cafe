@@ -85,7 +85,6 @@ section {
 }
 
 .btn {
-	font-family: "shabnam";
 	background-color: var(--color-bg-button);
 	box-shadow: 0 4px 12px var(--color-border);
 }
@@ -106,7 +105,9 @@ section {
 }
 
 .navbar-menu,
-.dropdown-item-custom {
+.dropdown-item-custom,
+.btn,
+.section-title {
 	font-family: "shabnam";
 }
 .dropdown-menu-custom {
@@ -150,3 +151,5 @@ section {
 }
 .hero-caption {
 }
+
+/* About Us Section */

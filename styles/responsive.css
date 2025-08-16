@@ -14,3 +14,12 @@
 		padding-top: 50px;
 	}
 }
+@media (min-width: 768px) {
+	.about-us__img {
+		border-bottom-right-radius: 0 !important;
+		border-bottom-left-radius: 0.5rem !important;
+		border-top-right-radius: 0 !important;
+	}
+}
+@media (min-width: 576px) {
+}
