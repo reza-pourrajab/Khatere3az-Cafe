@@ -1,12 +1,12 @@
 @media (min-width: 992px) {
-	.nav-link-custom:hover {
+	.nav-link-header:hover {
 		color: var(--color-text-secondary);
 	}
-	.dropdown-menu-custom {
+	.dropdown-menu-header {
 		background-color: var(--color-bg-card);
 	}
-	.nav-link-custom:active,
-	.dropdown-item-custom:active {
+	.nav-link-header:active,
+	.dropdown-item-header:active {
 		background-color: transparent;
 		color: inherit;
 	}
@@ -17,9 +17,7 @@
 @media (min-width: 768px) {
 	.about-us__img {
 		border-bottom-right-radius: 0 !important;
-		border-bottom-left-radius: 0.5rem !important;
 		border-top-right-radius: 0 !important;
+		border-bottom-left-radius: 0.5rem !important;
 	}
-}
-@media (min-width: 576px) {
 }

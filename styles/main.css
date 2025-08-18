@@ -2,6 +2,7 @@
 	/* پس‌زمینه */
 	--color-bg-main: #f5e8d3; /* پس‌زمینه اصلی */
 	--color-bg-card: #e6d5b8; /* پس‌زمینه کارت‌ها / باکس‌ها */
+	--color-bg-card-hover: #f0e0c0; /*  پس زمینه دکمه هنگام هاور  کارت‌ها / باکس‌ها */
 	--color-bg-button: #d4b998; /* پس‌زمینه دکمه‌ها */
 
 	/* متن */
@@ -80,13 +81,10 @@ button:focus-visible {
 	outline: none !important;
 	box-shadow: none !important;
 }
-section {
-	padding-top: 30px;
-}
 
 .btn {
 	background-color: var(--color-bg-button);
-	box-shadow: 0 4px 12px var(--color-border);
+	box-shadow: 0 2px 4px var(--color-border);
 }
 .btn:hover {
 	background-color: var(--color-accent);
@@ -105,26 +103,29 @@ section {
 }
 
 .navbar-menu,
-.dropdown-item-custom,
+.dropdown-item-header,
 .btn,
-.section-title {
+.section__title,
+.hero-title,
+.nav-tabs-custom,
+.product-title {
 	font-family: "shabnam";
 }
-.dropdown-menu-custom {
+.dropdown-menu-header {
 	background-color: var(--color-bg-main);
 }
-.nav-link-custom:active,
-.dropdown-item-custom:active {
-	background-color: var(--color-accent);
-	color: var(--color-text-secondary);
+.nav-link-header:active,
+.dropdown-item-header:active,
+.dropdown-item-header.active {
+	background-color: var(--color-accent) !important;
+	color: var(--color-text-secondary) !important;
 }
-
-.nav-link-custom,
-.dropdown-item-custom {
+.nav-link-header,
+.dropdown-item-header {
 	color: var(--color-text-main);
 }
 
-.navbar-custom .nav-link-custom.active {
+.navbar-custom .nav-link-header.active {
 	color: var(--color-accent);
 }
 
@@ -138,7 +139,7 @@ section {
 .hero-img {
 	position: absolute;
 	inset: 0;
-	background: url("../images/herosection/mike-kenneally-tNALoIZhqVM-unsplash.jpg")
+	background: url("../images/hero-section/mike-kenneally-tNALoIZhqVM-unsplash.jpg")
 		center/cover no-repeat;
 	z-index: -1;
 }
@@ -146,10 +147,47 @@ section {
 	color: var(--color-text-secondary);
 	padding-top: 40px;
 }
-.hero-title {
-	font-family: "shabnam";
-}
 .hero-caption {
 }
 
 /* About Us Section */
+/* Products Section */
+.nav-tabs-custom {
+	border-bottom: none;
+}
+.nav-tabs .nav-link {
+	border: none;
+	color: var(--color-text-main);
+}
+.nav-tabs .nav-link.active {
+	border-bottom: 3px solid var(--color-accent);
+}
+
+.product {
+	background-color: var(--color-bg-card);
+	box-shadow: 0 4px 12px var(--color-border);
+	transition: transform 0.3s ease, box-shadow 0.3s ease,
+		background-color 0.3s ease;
+}
+.product:hover {
+	transform: scale(1.03);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+	background-color: var(--color-bg-card-hover);
+}
+.product-image {
+	object-fit: cover;
+	height: 18rem;
+	border-bottom-right-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
+}
+.product-title {
+	color: var(--color-text-main);
+}
+.product-text {
+	color: var(--color-border);
+	min-height: 50px;
+	overflow: hidden;
+}
+.product-price {
+	color: var(--color-accent);
+}
