@@ -4,6 +4,7 @@ const header = document.querySelector("header");
 const sections = document.querySelectorAll("section");
 let isScrollingByClick = false;
 
+// Throttle برای scroll
 function throttle(func, limit) {
 	let inThrottle;
 	return function () {
@@ -16,6 +17,8 @@ function throttle(func, limit) {
 		}
 	};
 }
+
+// Scrollspy دستی
 function handleScroll() {
 	if (isScrollingByClick) return;
 
@@ -33,72 +36,30 @@ function handleScroll() {
 	});
 
 	if (currentSectionId) {
-		navLinks.forEach((link) => {
-			link.classList.toggle(
-				"active",
-				link.getAttribute("href") === "#" + currentSectionId
-			);
-		});
+		updateActiveLinks(currentSectionId);
 	}
 }
 
-// حل مشکل اسکرول از وسط سکشن
-navLinks.forEach((link) => {
-	link.addEventListener("click", function (e) {
-		e.preventDefault();
-
-		const targetId = this.getAttribute("href");
-		const targetEl = document.querySelector(targetId);
-
-		const headerHeight = header.offsetHeight;
-		const paddingTop =
-			parseInt(window.getComputedStyle(targetEl).paddingTop) || 0;
-
-		const elementPosition =
-			targetEl.getBoundingClientRect().top + window.pageYOffset;
-		const offsetPosition = elementPosition - headerHeight - paddingTop;
-
-		window.scrollTo({
-			top: offsetPosition,
-			behavior: "smooth",
-		});
+// تابع برای به‌روزرسانی کلاس active روی همه لینک‌ها
+function updateActiveLinks(currentSectionId) {
+	const allLinks = [...navLinks, ...dropdownLinks];
+	allLinks.forEach((link) => {
+		link.classList.toggle(
+			"active",
+			link.getAttribute("href") === "#" + currentSectionId
+		);
 	});
-});
-
-// Add smooth scroll for dropdown menu links
-dropdownLinks.forEach((link) => {
-	link.addEventListener("click", function (e) {
-		e.preventDefault();
-
-		const targetId = this.getAttribute("href");
-		const targetEl = document.querySelector(targetId);
-		if (!targetEl) return;
-
-		const headerHeight = header.offsetHeight;
-		const paddingTop =
-			parseInt(window.getComputedStyle(targetEl).paddingTop) || 0;
-
-		const elementPosition =
-			targetEl.getBoundingClientRect().top + window.pageYOffset;
-		const offsetPosition = elementPosition - headerHeight - paddingTop;
-
-		window.scrollTo({
-			top: offsetPosition,
-			behavior: "smooth",
-		});
-	});
-});
-
-// اضافه کردن کلاس اکتیو به لینک فعال
-
-// JS Scrollspy دستی
+}
 
 // تابع scroll نرم با promise
-function smoothScroll(target) {
+function smoothScroll(target, extraOffset = 0) {
 	return new Promise((resolve) => {
 		const headerHeight = header.offsetHeight;
 		const top =
-			target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+			target.getBoundingClientRect().top +
+			window.pageYOffset -
+			headerHeight -
+			extraOffset;
 
 		window.scrollTo({ top, behavior: "smooth" });
 
@@ -111,59 +72,69 @@ function smoothScroll(target) {
 	});
 }
 
-// کلیک روی لینک‌ها
-navLinks.forEach((link) => {
+// تابع عمومی کلیک روی هر لینک
+function handleLinkClick(link, extraOffset = 0) {
 	link.addEventListener("click", async (e) => {
 		e.preventDefault();
 		isScrollingByClick = true;
 
-		navLinks.forEach((l) => l.classList.remove("active"));
-		link.classList.add("active");
-
-		const target = document.querySelector(link.getAttribute("href"));
-		await smoothScroll(target);
-
-		isScrollingByClick = false;
-	});
-});
-
-// Add active class logic for dropdown menu links
-dropdownLinks.forEach((link) => {
-	link.addEventListener("click", async (e) => {
-		e.preventDefault();
-		isScrollingByClick = true;
-
-		// Remove active from all dropdown items
-		dropdownLinks.forEach((l) => l.classList.remove("active"));
+		// حذف active از همه لینک‌ها و اضافه کردن به لینک کلیک‌شده
+		const allLinks = [...navLinks, ...dropdownLinks];
+		allLinks.forEach((l) => l.classList.remove("active"));
 		link.classList.add("active");
 
 		const href = link.getAttribute("href");
-		// Generalized: if a tab button with data-bs-target equal to href exists, trigger it
+		const target = document.querySelector(href);
+
+		// اگر لینک مربوط به تب بوت‌استرپ بود
 		const tabButton = document.querySelector(
 			`button[data-bs-target='${href}']`
 		);
-		if (tabButton) {
-			tabButton.click();
-			// Scroll to the tab content, adjusted for header height and extra offset
-			const tabPane = document.querySelector(href);
-			if (tabPane) {
-				const headerHeight = header.offsetHeight;
-				const extraOffset = 55; // px, adjust as needed
-				const top =
-					tabPane.getBoundingClientRect().top +
-					window.pageYOffset -
-					headerHeight -
-					extraOffset;
-				window.scrollTo({ top, behavior: "smooth" });
-			}
+		if (tabButton) tabButton.click();
+
+		// ✅ اگر تب پین هست، offset اختصاصی 55px استفاده شود
+		if (tabButton && target) {
+			const extraTabOffset = 55;
+			await smoothScroll(target, extraTabOffset);
 			isScrollingByClick = false;
 			return;
 		}
 
-		const target = document.querySelector(href);
-		await smoothScroll(target);
+		// scroll نرم با offset معمولی
+		if (target) await smoothScroll(target, extraOffset);
 
 		isScrollingByClick = false;
 	});
-});
+}
+
+// اعمال روی همه لینک‌ها
+[...navLinks, ...dropdownLinks].forEach((link) => handleLinkClick(link));
+
+// Scrollspy روی اسکرول
 window.addEventListener("scroll", throttle(handleScroll, 200));
+
+// تنظیم لینک فعال اولیه هنگام بارگذاری
+function setInitialActive() {
+	let currentSectionId = "";
+	sections.forEach((section) => {
+		const sectionTop = section.offsetTop - header.offsetHeight;
+		const sectionBottom = sectionTop + section.offsetHeight;
+
+		if (
+			window.pageYOffset >= sectionTop &&
+			window.pageYOffset < sectionBottom
+		) {
+			currentSectionId = section.getAttribute("id");
+		}
+	});
+
+	if (!currentSectionId && sections.length) {
+		currentSectionId = sections[0].getAttribute("id");
+	}
+
+	if (currentSectionId) {
+		updateActiveLinks(currentSectionId);
+	}
+}
+
+window.addEventListener("DOMContentLoaded", setInitialActive);
