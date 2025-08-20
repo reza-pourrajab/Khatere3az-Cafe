@@ -1,6 +1,6 @@
 @media (min-width: 992px) {
 	.nav-link-header:hover {
-		color: var(--color-text-secondary);
+		color: var(--color-accent);
 	}
 	.dropdown-menu-header {
 		background-color: var(--color-bg-card);
