@@ -209,3 +209,41 @@ button:focus-visible {
 .gallery-wrapper-img:hover .gallery-img {
 	transform: scale(1.03);
 }
+
+/* Footer */
+.footer {
+	background-color: var(--color-bg-card);
+	box-shadow: 0 -4px 20px var(--color-border);
+}
+.footer a {
+	text-decoration: none;
+}
+.brand-footer,
+.footer-social {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.footer-title,
+.footer-phone,
+.footer-social {
+	color: var(--color-text-main);
+}
+.footer-title {
+	margin-bottom: 1rem;
+}
+.footer-menu {
+}
+.footer-menu__item {
+}
+.footer-menu__link {
+	color: var(--color-accent);
+	transition: color 0.3s ease;
+}
+.footer-menu__link:hover {
+	color: var(--color-text-main);
+}
+.footer-social {
+	text-align: center;
+	font-weight: 500;
+}
