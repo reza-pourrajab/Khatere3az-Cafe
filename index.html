@@ -24,6 +24,35 @@
 			property="og:url"
 			content="https://reza-pourrajab.github.io/Khatere3az-Cafe"
 		/>
+		<link
+			rel="preload"
+			as="image"
+			href="images/hero-section/hero-mobile.webp"
+			media="(max-width: 576px)"
+		/>
+		<link rel="preload" as="image" href="images/hero-section/hero.webp" />
+		<link
+			rel="preload"
+			href="fonts/lalehzar/Lalezar-Regular.ttf"
+			as="font"
+			type="font/ttf"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="fonts/shabnam/woff2/Shabnam-Bold.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="fonts/vazir/woff2/Vazirmatn-Regular.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+
 		<link rel="stylesheet" href="./styles/bootstrap.rtl.min.css" />
 		<link
 			rel="stylesheet"
@@ -197,7 +226,18 @@
 		</header>
 		<main>
 			<section class="hero" id="home">
-				<div class="hero-img"></div>
+				<picture>
+					<source
+						srcset="images/hero-section/hero-mobile.webp"
+						media="(max-width: 576px)"
+					/>
+					<img
+						src="images/hero-section/hero.webp"
+						alt="قبیله ی طعم و دوستی"
+						class="hero-bg-img"
+						loading="eager"
+					/>
+				</picture>
 				<div class="container">
 					<div class="row">
 						<div class="col-md-7 col-lg-6">
