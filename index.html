@@ -45,6 +45,9 @@
 						<a
 							class="navbar-brand brand-custom d-flex align-items-center"
 							href="#"
+							role="link"
+							aria-label="صفحه اصلی کافی شاپ خاطره ساز"
+							tabindex="0"
 						>
 							<img
 								src="./images/Logo.webp"
@@ -62,7 +65,8 @@
 							data-bs-target="#navbar-content"
 							aria-controls="navbar-content"
 							aria-expanded="false"
-							aria-label="Toggle navigation"
+							aria-label="باز و بسته کردن منوی ناوبری"
+							tabindex="0"
 						>
 							<span class="navbar-toggler-icon"></span>
 						</button>
@@ -73,7 +77,12 @@
 						>
 							<div class="offcanvas-header">
 								<h4 class="offcanvas-title nav-title">کافی شاپ خاطره ساز</h4>
-								<button class="btn-close" data-bs-dismiss="offcanvas"></button>
+								<button
+									class="btn-close"
+									data-bs-dismiss="offcanvas"
+									aria-label="بستن منو"
+									tabindex="0"
+								></button>
 							</div>
 							<div class="offcanvas-body">
 								<ul class="navbar-nav gap-md-1 gap-lg-2 navbar-menu">
@@ -82,11 +91,19 @@
 											class="nav-link nav-link-header"
 											aria-current="page"
 											href="#home"
+											role="link"
+											aria-label="رفتن به بخش خانه"
+											tabindex="0"
 											>خانه</a
 										>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link nav-link-header" href="#about-us"
+										<a
+											class="nav-link nav-link-header"
+											href="#about-us"
+											role="link"
+											aria-label="رفتن به بخش درباره ما"
+											tabindex="0"
 											>درباره ما</a
 										>
 									</li>
@@ -97,6 +114,8 @@
 											role="button"
 											data-bs-toggle="dropdown"
 											aria-expanded="false"
+											aria-label="باز کردن منوی محصولات"
+											tabindex="0"
 										>
 											محصولات
 										</a>
@@ -105,6 +124,9 @@
 												<a
 													class="dropdown-item dropdown-item-header"
 													href="#hot-drinks"
+													role="link"
+													aria-label="رفتن به بخش نوشیدنی های گرم"
+													tabindex="0"
 													>نوشیدنی های گرم</a
 												>
 											</li>
@@ -112,6 +134,9 @@
 												<a
 													class="dropdown-item dropdown-item-header"
 													href="#cold-drinks"
+													role="link"
+													aria-label="رفتن به بخش نوشیدنی های خنک"
+													tabindex="0"
 													>نوشیدنی های خنک</a
 												>
 											</li>
@@ -119,28 +144,51 @@
 												<a
 													class="dropdown-item dropdown-item-header"
 													href="#hookah"
+													role="link"
+													aria-label="رفتن به بخش قلیان"
+													tabindex="0"
 													>قلیان</a
 												>
 											</li>
 										</ul>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link nav-link-header" href="#gallery"
+										<a
+											class="nav-link nav-link-header"
+											href="#gallery"
+											role="link"
+											aria-label="رفتن به بخش گالری"
+											tabindex="0"
 											>گالری</a
 										>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link nav-link-header" href="#contact-us"
+										<a
+											class="nav-link nav-link-header"
+											href="#contact-us"
+											role="link"
+											aria-label="رفتن به بخش ارتباط با ما"
+											tabindex="0"
 											>ارتباط با ما</a
 										>
 									</li>
-									<a href="#" class="btn btn-custom mt-5 d-lg-none"
+									<a
+										href="#"
+										class="btn btn-custom mt-5 d-lg-none"
+										role="button"
+										aria-label="ورود یا ثبت نام"
+										tabindex="0"
 										>ورود | ثبت نام</a
 									>
 								</ul>
 							</div>
 						</div>
-						<a href="#" class="btn btn-custom d-none d-lg-block"
+						<a
+							href="#"
+							class="btn btn-custom d-none d-lg-block"
+							role="button"
+							aria-label="ورود یا ثبت نام"
+							tabindex="0"
 							>ورود | ثبت نام</a
 						>
 					</div>
@@ -161,7 +209,12 @@
 									از سال ۱۳۹۹، اینجا جاییه که قهوه‌ها حرف می‌زنن و آدم‌ها گوش
 									می‌دن. پاتوقی برای خنده‌ها، بازی‌ها و فراموش کردن غصه‌ها.
 								</p>
-								<a href="#" class="btn btn-lg hero-btn"
+								<a
+									href="#"
+									class="btn btn-lg hero-btn"
+									role="button"
+									aria-label="همین حالا مهمان ما شو"
+									tabindex="0"
 									>همین حالا مهمان ما شو</a
 								>
 							</div>
@@ -295,7 +348,12 @@
 													۵۰,۰۰۰ تومان
 												</div>
 												<div class="product-btn">
-													<a href="#" class="btn btn-custom"
+													<a
+														href="#"
+														class="btn btn-custom"
+														role="button"
+														aria-label="افزودن به سبد خرید"
+														tabindex="0"
 														>افزودن به سبد خرید</a
 													>
 												</div>
@@ -1074,7 +1132,14 @@
 										<label for="form-textarea">پیام شما</label>
 									</div>
 									<div class="form-btn d-flex justify-content-end">
-										<button type="submit" class="btn btn-custom">ارسال</button>
+										<button
+											type="submit"
+											class="btn btn-custom"
+											aria-label="ارسال پیام"
+											tabindex="0"
+										>
+											ارسال
+										</button>
 									</div>
 								</form>
 							</div>
@@ -1098,7 +1163,13 @@
 					class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-5 text-center text-lg-start"
 				>
 					<div class="col">
-						<a class="navbar-brand brand-custom brand-footer" href="#">
+						<a
+							class="navbar-brand brand-custom brand-footer"
+							href="#"
+							role="link"
+							aria-label="صفحه اصلی کافی شاپ خاطره ساز"
+							tabindex="0"
+						>
 							<img
 								src="./images/Logo.webp"
 								alt="لوگو کافی شاپ"
@@ -1114,19 +1185,52 @@
 						<h5 class="footer-title">دسترسی سریع</h5>
 						<ul class="footer-menu d-flex flex-column gap-2 list-unstyled">
 							<li class="footer-menu__item">
-								<a class="footer-menu__link h6" href="#home">خانه</a>
+								<a
+									class="footer-menu__link h6"
+									href="#home"
+									role="link"
+									aria-label="رفتن به بخش خانه"
+									tabindex="0"
+									>خانه</a
+								>
 							</li>
 							<li class="footer-menu__item">
-								<a class="footer-menu__link h6" href="#about-us">درباره ما</a>
+								<a
+									class="footer-menu__link h6"
+									href="#about-us"
+									role="link"
+									aria-label="رفتن به بخش درباره ما"
+									tabindex="0"
+									>درباره ما</a
+								>
 							</li>
 							<li class="footer-menu__item">
-								<a class="footer-menu__link h6" href="#products">محصولات</a>
+								<a
+									class="footer-menu__link h6"
+									href="#products"
+									role="link"
+									aria-label="رفتن به بخش محصولات"
+									tabindex="0"
+									>محصولات</a
+								>
 							</li>
 							<li class="footer-menu__item">
-								<a class="footer-menu__link h6" href="#gallery">گالری</a>
+								<a
+									class="footer-menu__link h6"
+									href="#gallery"
+									role="link"
+									aria-label="رفتن به بخش گالری"
+									tabindex="0"
+									>گالری</a
+								>
 							</li>
 							<li class="footer-menu__item">
-								<a class="footer-menu__link h6" href="#contact-us"
+								<a
+									class="footer-menu__link h6"
+									href="#contact-us"
+									role="link"
+									aria-label="رفتن به بخش ارتباط با ما"
+									tabindex="0"
 									>ارتباط با ما</a
 								>
 							</li>
@@ -1139,6 +1243,9 @@
 								href="tel:+989334810461"
 								class="footer-phone text-decoration-none"
 								style="direction: ltr"
+								role="link"
+								aria-label="تماس با کافی شاپ خاطره ساز"
+								tabindex="0"
 							>
 								<i class="bi bi-telephone me-2"></i>
 								0461 483 0933</a
@@ -1151,6 +1258,10 @@
 							href="https://www.instagram.com/khatere__3az/?utm_source=ig_web_button_share_sheet"
 							class="footer-social"
 							target="_blank"
+							rel="noopener noreferrer"
+							role="link"
+							aria-label="اینستاگرام کافی شاپ خاطره ساز"
+							tabindex="0"
 						>
 							<i
 								class="bi bi-instagram me-2 d-flex align-items-center justify-content-center"
@@ -1161,6 +1272,10 @@
 							href="https://t.me/Amirho3yin"
 							class="footer-social"
 							target="_blank"
+							rel="noopener noreferrer"
+							role="link"
+							aria-label="تلگرام کافی شاپ خاطره ساز"
+							tabindex="0"
 						>
 							<i class="bi bi-telegram me-2 d-flex align-items-center"></i>
 							تلگرام: Amirho3yin</a
@@ -1170,7 +1285,13 @@
 			</div>
 			<hr class="border border-secondary-subtle opacity-75" />
 			<div class="container">
-				<a href="#" class="btn btn-custom position-fixed bottom-0 start-0">
+				<a
+					href="#"
+					class="btn btn-custom position-fixed bottom-0 start-0"
+					role="button"
+					aria-label="بازگشت به بالا"
+					tabindex="0"
+				>
 					<i class="bi bi-arrow-up"></i>
 				</a>
 				<div
