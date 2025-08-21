@@ -92,6 +92,10 @@ button:focus-visible {
 	background-color: var(--color-accent);
 	color: var(--color-text-secondary);
 }
+.gallery-wrapper-img,
+.product {
+	cursor: pointer;
+}
 
 /* Header */
 .header-custom {
@@ -148,10 +152,7 @@ button:focus-visible {
 	color: var(--color-text-secondary);
 	padding-top: 40px;
 }
-.hero-caption {
-}
 
-/* About Us Section */
 /* Products Section */
 .nav-tabs-custom {
 	border-bottom: none;
@@ -231,10 +232,6 @@ button:focus-visible {
 }
 .footer-title {
 	margin-bottom: 1rem;
-}
-.footer-menu {
-}
-.footer-menu__item {
 }
 .footer-menu__link {
 	color: var(--color-accent);
