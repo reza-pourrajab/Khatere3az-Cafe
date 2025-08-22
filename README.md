@@ -76,6 +76,30 @@ The main goal is to build a **beautiful, responsive, and professional website** 
 
 ---
 
+## 📸 Screenshots
+
+### 1. Home Page
+
+![Brief description of the home page](./images/README/hero.png)
+_Overview of the home page and the Hero section_
+
+### 2. Products / Menu
+
+![Brief description of the products section](./images/README/products.png)
+_Product cards and category layout_
+
+### 3. Gallery
+
+![Brief description of the gallery](./images/README/gallery.png)
+_Example of the image gallery or featured section_
+
+### 4. Contact Form
+
+![Brief description of the contact form](./images/README/contact-form.png)
+_Form for users to send messages to the website_
+
+---
+
 ## 🚀 How to Run
 
 1. Download or clone the project:
