@@ -3,6 +3,18 @@ const dropdownLinks = document.querySelectorAll(".dropdown-item-header");
 const header = document.querySelector("header");
 const sections = document.querySelectorAll("section");
 let isScrollingByClick = false;
+// انتخاب مودال بر اساس id
+const coffeeModalEl = document.getElementById("coffee-modal");
+const coffeeModal = new bootstrap.Modal(coffeeModalEl, {
+	keyboard: true,
+});
+
+// باز شدن مودال بعد از 6 ثانیه
+window.addEventListener("load", () => {
+	setTimeout(() => {
+		coffeeModal.show();
+	}, 6000); // 6000 میلی‌ثانیه = 6 ثانیه
+});
 
 // Throttle برای scroll
 function throttle(func, limit) {

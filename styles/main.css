@@ -103,6 +103,18 @@ button:focus-visible {
 	color: var(--color-accent);
 }
 
+/* Modal Section */
+.modal-content {
+	background-color: var(--color-bg-card);
+	color: var(--color-text-main);
+	border: 2px solid var(--color-border);
+}
+.modal .btn-close {
+	filter: invert(25%) sepia(10%) saturate(500%) hue-rotate(10deg);
+}
+.modal-footer {
+	border-top-color: var(--color-border);
+}
 /* Hero Section */
 
 .hero {
