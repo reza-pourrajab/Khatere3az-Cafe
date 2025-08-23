@@ -1,22 +1,33 @@
+"use strict";
+// Select all navigation links in the header
 const navLinks = document.querySelectorAll("#header-navbar .nav-link-header");
+// Select all dropdown links in the header (for mobile or submenus)
 const dropdownLinks = document.querySelectorAll(".dropdown-item-header");
+// Select the header element
 const header = document.querySelector("header");
+// Select all sections on the page for scrollspy
 const sections = document.querySelectorAll("section");
-let isScrollingByClick = false;
-// انتخاب مودال بر اساس id
+// Select the coffee modal element and initialize Bootstrap modal
 const coffeeModalEl = document.getElementById("coffee-modal");
 const coffeeModal = new bootstrap.Modal(coffeeModalEl, {
-	keyboard: true,
+	keyboard: true, // allow closing with ESC
 });
+// Flag to prevent scrollspy from updating active links during programmatic scroll
+let isScrollingByClick = false;
 
-// باز شدن مودال بعد از 6 ثانیه
+// -------------------------
+// Show modal 4 seconds after page load
+// -------------------------
+
 window.addEventListener("load", () => {
 	setTimeout(() => {
 		coffeeModal.show();
-	}, 6000); // 6000 میلی‌ثانیه = 6 ثانیه
+	}, 4000);
 });
 
-// Throttle برای scroll
+// -------------------------
+// Throttle function to limit the rate of executing scroll handler
+// -------------------------
 function throttle(func, limit) {
 	let inThrottle;
 	return function () {
@@ -30,9 +41,11 @@ function throttle(func, limit) {
 	};
 }
 
-// Scrollspy دستی
+// -------------------------
+// Manual scrollspy: update active nav link based on current section
+// -------------------------
 function handleScroll() {
-	if (isScrollingByClick) return;
+	if (isScrollingByClick) return; // skip if scrolling triggered by link click
 
 	let currentSectionId = "";
 	sections.forEach((section) => {
@@ -52,7 +65,9 @@ function handleScroll() {
 	}
 }
 
-// تابع برای به‌روزرسانی کلاس active روی همه لینک‌ها
+// -------------------------
+// Update 'active' class on all nav and dropdown links
+// -------------------------
 function updateActiveLinks(currentSectionId) {
 	const allLinks = [...navLinks, ...dropdownLinks];
 	allLinks.forEach((link) => {
@@ -63,7 +78,9 @@ function updateActiveLinks(currentSectionId) {
 	});
 }
 
-// تابع scroll نرم با promise
+// -------------------------
+// Smooth scroll to a target section using a Promise
+// -------------------------
 function smoothScroll(target, extraOffset = 0) {
 	return new Promise((resolve) => {
 		const headerHeight = header.offsetHeight;
@@ -72,9 +89,9 @@ function smoothScroll(target, extraOffset = 0) {
 			window.pageYOffset -
 			headerHeight -
 			extraOffset;
-
+		// Trigger smooth scroll
 		window.scrollTo({ top, behavior: "smooth" });
-
+		// Check periodically if scroll reached the target
 		const checkScroll = setInterval(() => {
 			if (Math.abs(window.pageYOffset - top) < 2) {
 				clearInterval(checkScroll);
@@ -84,13 +101,15 @@ function smoothScroll(target, extraOffset = 0) {
 	});
 }
 
-// تابع عمومی کلیک روی هر لینک
+// -------------------------
+// Handle click on a nav or dropdown link
+// -------------------------
 function handleLinkClick(link, extraOffset = 0) {
 	link.addEventListener("click", async (e) => {
 		e.preventDefault();
-		isScrollingByClick = true;
+		isScrollingByClick = true; // prevent scrollspy interference
 
-		// حذف active از همه لینک‌ها و اضافه کردن به لینک کلیک‌شده
+		// Remove active class from all links and add to clicked link
 		const allLinks = [...navLinks, ...dropdownLinks];
 		allLinks.forEach((l) => l.classList.remove("active"));
 		link.classList.add("active");
@@ -98,13 +117,13 @@ function handleLinkClick(link, extraOffset = 0) {
 		const href = link.getAttribute("href");
 		const target = document.querySelector(href);
 
-		// اگر لینک مربوط به تب بوت‌استرپ بود
+		// If link corresponds to a Bootstrap tab, trigger tab click
 		const tabButton = document.querySelector(
 			`button[data-bs-target='${href}']`
 		);
 		if (tabButton) tabButton.click();
 
-		// ✅ اگر تب پین هست، offset اختصاصی 55px استفاده شود
+		// ✅ If tab, use extra offset for pinned section
 		if (tabButton && target) {
 			const extraTabOffset = 55;
 			await smoothScroll(target, extraTabOffset);
@@ -112,20 +131,22 @@ function handleLinkClick(link, extraOffset = 0) {
 			return;
 		}
 
-		// scroll نرم با offset معمولی
+		// Smooth scroll to section normally
 		if (target) await smoothScroll(target, extraOffset);
 
 		isScrollingByClick = false;
 	});
 }
 
-// اعمال روی همه لینک‌ها
+// Apply click handler to all nav and dropdown links
 [...navLinks, ...dropdownLinks].forEach((link) => handleLinkClick(link));
 
-// Scrollspy روی اسکرول
+// Attach scroll handler with throttle
 window.addEventListener("scroll", throttle(handleScroll, 200));
 
-// تنظیم لینک فعال اولیه هنگام بارگذاری
+// -------------------------
+// Set initial active link based on current scroll position
+// -------------------------
 function setInitialActive() {
 	let currentSectionId = "";
 	sections.forEach((section) => {
@@ -139,7 +160,7 @@ function setInitialActive() {
 			currentSectionId = section.getAttribute("id");
 		}
 	});
-
+	// Default to first section if none matched
 	if (!currentSectionId && sections.length) {
 		currentSectionId = sections[0].getAttribute("id");
 	}

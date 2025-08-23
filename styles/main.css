@@ -1,3 +1,6 @@
+/* ========================================
+:root Variables (پالت رنگی اصلی)
+======================================== */
 :root {
 	/* پس‌زمینه */
 	--color-bg-main: #f5e8d3; /* پس‌زمینه اصلی */
@@ -15,7 +18,9 @@
 	/* خطوط و سایه */
 	--color-border: #c1a882; /* خطوط جداکننده و سایه کارت‌ها */
 }
-
+/* ========================================
+Font Faces
+======================================== */
 @font-face {
 	font-family: "laleh";
 	src: url("../fonts/lalehzar/Lalezar-Regular.ttf") format("truetype");
@@ -39,20 +44,24 @@
 	font-style: normal;
 	font-display: swap;
 }
-
+/* ========================================
+Body & Global Styles
+======================================== */
 body {
 	font-family: "vazir", sans-serif;
 	background-color: var(--color-bg-main);
 	color: var(--color-text-main);
 }
-
+/* Remove focus outline on buttons for cleaner UI */
 button:focus,
 button:active,
 button:focus-visible {
 	outline: none !important;
 	box-shadow: none !important;
 }
-
+/* ========================================
+Buttons
+======================================== */
 .btn {
 	background-color: var(--color-bg-button);
 	box-shadow: 0 2px 4px var(--color-border);
@@ -61,11 +70,16 @@ button:focus-visible {
 	background-color: var(--color-accent);
 	color: var(--color-text-secondary);
 }
+/* ========================================
+Gallery & Product Cursor
+======================================== */
 .gallery-wrapper-img,
 .product {
 	cursor: pointer;
 }
-/* Header */
+/* ========================================
+Header
+======================================== */
 .header-custom {
 	background-color: var(--color-bg-card);
 	box-shadow: 0 4px 12px var(--color-border);
@@ -103,7 +117,9 @@ button:focus-visible {
 	color: var(--color-accent);
 }
 
-/* Modal Section */
+/* ========================================
+Modal Section
+======================================== */
 .modal-content {
 	background-color: var(--color-bg-card);
 	color: var(--color-text-main);
@@ -118,7 +134,9 @@ button:focus-visible {
 .modal-footer {
 	border-top-color: var(--color-border);
 }
-/* Hero Section */
+/* ========================================
+Hero Section
+======================================== */
 
 .hero {
 	position: relative;
@@ -147,7 +165,9 @@ button:focus-visible {
 	color: var(--color-text-secondary);
 	padding-top: 40px;
 }
-/* Products Section */
+/* ========================================
+Products Section
+======================================== */
 .nav-tabs-custom {
 	border-bottom: none;
 }
@@ -188,7 +208,9 @@ button:focus-visible {
 	color: var(--color-accent);
 }
 
-/* Gallery Section */
+/* ========================================
+Gallery Section
+======================================== */
 
 .gallery-wrapper-img {
 	overflow: hidden;
@@ -205,7 +227,9 @@ button:focus-visible {
 	transform: scale(1.03);
 }
 
-/* Footer */
+/* ========================================
+Footer
+======================================== */
 .footer {
 	background-color: var(--color-bg-card);
 	box-shadow: 0 -4px 20px var(--color-border);
@@ -238,6 +262,9 @@ button:focus-visible {
 	text-align: center;
 	font-weight: 500;
 }
+/* ========================================
+Media Queries
+======================================== */
 @media (min-width: 992px) {
 	.nav-link-header:hover {
 		color: var(--color-accent);
