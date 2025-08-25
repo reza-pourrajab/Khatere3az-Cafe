@@ -147,7 +147,7 @@ Hero Section
 	content: "";
 	position: absolute;
 	inset: 0;
-	background-color: rgba(62, 44, 28, 0.5);
+	background-color: rgba(62, 44, 28, 0.3);
 	z-index: 2;
 }
 .hero-bg-img {
@@ -162,7 +162,7 @@ Hero Section
 .hero-content {
 	position: relative;
 	z-index: 3;
-	color: var(--color-text-secondary);
+	color: #fff;
 	padding-top: 40px;
 }
 /* ========================================
